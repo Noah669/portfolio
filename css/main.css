@@ -1,0 +1,313 @@
+/* Évite le débordement horizontal de la page */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Définit un comportement de défilement fluide pour la page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste le comportement de défilement pour les utilisateurs qui préfèrent moins d'animations */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ajoute une marge en haut des sections pour le défilement */
+.section {
+  scroll-margin-top: 2rem;
+}
+
+/* Styles pour le titre du site */
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 3rem;
+  text-decoration: none;
+}
+
+/* Styles spécifiques pour les écrans plus larges */
+@media (min-width: 48em) {
+  .site-title {
+    float: left;
+  }
+}
+
+/* Styles pour les liens de navigation */
+.nav-link {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Styles pour les liens de réseaux sociaux dans la navigation */
+.social-nav .nav-link {
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+}
+
+/* Styles pour l'état de survol et de focus des liens de navigation */
+.nav-link:hover,
+.nav-link:focus,
+.active .nav-link {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Styles pour le titre d'introduction */
+.intro-title {
+  font-weight: 800;
+}
+
+/* Animation pour l'effet d'onde */
+@-webkit-keyframes animateWave {
+  0% {
+    transform: scale(1, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* Animation d'onde sans préfixe */
+@keyframes animateWave {
+  0% {
+    transform: scale(1, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* Styles pour l'arrière-plan de l'onde */
+.wave-bg {
+  display: block;
+  height: 220px;
+  width: 100%;
+  min-width: 600px;
+  transform-origin: top;
+  -webkit-animation: animateWave 2000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: animateWave 2000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  background-image: url("../images/wave-bg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Styles pour les images d'avatar */
+img.avatar {
+  border-radius: 30px;
+}
+
+/* Utilisé pour nettoyer les flottants dans la grille */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* Définition de la largeur par défaut pour les éléments de la grille */
+.grid-sizer,
+.grid-item {
+  width: 100%;
+}
+
+/* Espacement en bas pour chaque élément de la grille */
+.grid-item {
+  padding-bottom: 12px;
+}
+
+/* Styles pour les écrans plus larges, ajustant la grille */
+@media (min-width: 48em) {
+  .grid-sizer,
+  .grid-item {
+    width: 25%;
+  }
+  .grid-item {
+    float: left;
+    padding: 6px;
+  }
+}
+
+/* Styles pour les images dans les éléments de la grille */
+.grid-item img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Styles pour la section de portfolio */
+.portolio-section .container {
+  padding: 0;
+}
+
+/* Styles pour le portfolio, avec un arrière-plan transparent */
+#portfolio {
+  margin-top: 2%;
+  background-color: #0a0a0a0e;
+}
+
+/* Styles pour les éléments du portfolio */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin: 0;
+}
+
+/* Styles pour le figcaption dans les éléments du portfolio */
+.portfolio-item figcaption {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  transition: transform 0.35s;
+  transform: translate3d(0, 100%, 0);
+}
+
+/* Styles pour le titre dans figcaption */
+.portfolio-item figcaption h4 {
+  color: #222;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+/* Styles pour le paragraphe dans figcaption */
+.portfolio-item figcaption p {
+  color: #444;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* Styles lors du survol d'un élément du portfolio */
+.portfolio-item:hover figcaption {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Styles pour la div dans figcaption */
+.portfolio-item figcaption div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  visibility: visible;
+}
+
+/* Masque la div lors du survol */
+.portfolio-item:hover figcaption div {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Styles pour le h4 lors du survol */
+.portfolio-item:hover figcaption h4 {
+  opacity: 1;
+}
+
+/* Styles pour les liens dans le footer */
+footer a:not(.nav-link) {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styles pour le bouton de retour en haut */
+#scrolltop {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Styles pour le bouton dans #scrolltop */
+#scrolltop .btn {
+  padding: 3px 11px;
+  border-radius: 50%;
+}
+
+/* Styles pour un conteneur avec une largeur maximale */
+.container-narrow {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* Styles pour le texte de petite taille */
+.text-small {
+  font-size: 0.875rem;
+}
+
+/* Styles pour le texte en majuscules */
+.text-uppercase {
+  letter-spacing: 0.05em;
+}
+
+/* Effet de survol avec transition */
+.hover-effect {
+  transition: transform .18s ease-in-out;
+}
+
+/* Transformation au survol */
+.hover-effect:hover {
+  transform: translateY(-2px);
+}
+
+/* Styles pour le marqueur */
+.marker {
+  position: relative;
+  display: inline;
+  width: auto;
+}
+
+/* Styles pour un marqueur centré */
+.marker-center {
+  padding-right: 0;
+}
+
+/* Styles pour l'élément après le marqueur */
+.marker:after {
+  content: "";
+  width: 125px;
+  height: 30px;
+  position: absolute;
+  bottom: -25px;
+  right: -30px;
+  background-image: url("../images/marker.svg");
+  background-repeat: no-repeat;
+}
+
+/* Styles pour un marqueur centré avec ajustement */
+.marker-center:after {
+  bottom: -30px;
+  left: 50%;
+  margin-left: -60px;
+}
+
+/* Styles pour les écrans plus petits */
+@media (max-width: 575.98px) {
+  .marker {
+    padding-right: 0;
+  }
+  .marker:after {
+    bottom: -30px;
+    left: 50%;
+    margin-left: -60px;
+  }
+}
+
+/* Styles pour les liens de titre d'entrée */
+.entry-title a {
+  text-decoration: none;
+}
