@@ -1,5 +1,3 @@
-const dateNaissance = '2003-09-02';
-
 function calculerAge(dateNaissance) {
     const aujourdHui = new Date();
     const naissance = new Date(dateNaissance);
@@ -18,7 +16,7 @@ function calculerAge(dateNaissance) {
 }
 
 function afficherAge() {
-    const age = calculerAge(dateNaissance);
+    const age = calculerAge('2003-09-02');
     document.getElementById('resultat').innerText = `- ${age}`; 
 }
 
