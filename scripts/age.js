@@ -19,7 +19,7 @@ function calculerAge(dateNaissance) {
 
 function afficherAge() {
     const age = calculerAge(dateNaissance);
-    document.getElementById('resultat').innerText = `${age}`; 
+    document.getElementById('resultat').innerText = `- ${age}`; 
 }
 
 document.addEventListener('DOMContentLoaded', afficherAge);
